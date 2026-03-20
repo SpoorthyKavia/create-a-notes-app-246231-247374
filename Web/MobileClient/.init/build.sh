@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+set -euo pipefail
+WORKSPACE="/home/kavia/workspace/code-generation/create-a-notes-app-246231-247374/Web/MobileClient"
+cd "$WORKSPACE"
+# ensure env sourced if present
+[ -f /etc/profile.d/web_mobileclient_env.sh ] && source /etc/profile.d/web_mobileclient_env.sh || true
+npm run build --silent || { echo "build failed" >&2; exit 7; }
